@@ -7,5 +7,5 @@ class Features(models.Model):
     title_name=models.CharField(max_length=300)
     description=models.TextField()
     
-class Plans(models.Models):
-    
+class Plans(models.Model):
+    pass
