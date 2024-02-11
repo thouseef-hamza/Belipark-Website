@@ -9946,5 +9946,31 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -35px; }
   100% {
-    stroke-dasharray: 89, 200;
+    stroke-dasharray: 89, 200;  
     stroke-dashoffset: -136px; } }
+
+.services-shadow-hover{
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.services-shadow-hover:hover{
+  box-shadow: 0 0 20px #089188;
+  transform: scale(1.05);
+}
+.btn.btn-primary {
+  background: #089188 !important;
+  color: #fff !important;
+}
+
+.btn.btn-primary:hover {
+  background: #fff !important;
+  border-color: #089188 !important;
+  color: #089188 !important;
+  box-shadow: 0 0 30px #089188;
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: none !important;
+  font-size: 15px;
+}
