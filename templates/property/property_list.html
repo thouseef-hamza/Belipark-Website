@@ -1,0 +1,180 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<!-- Nav Starts -->
+{% include "includes/navbar.html" %}
+{% comment %} <section class="ftco-section ftco-intro" style="background-color: #d2b570;margin-top:7%">
+	<div class="container">
+  <div class="row">
+    <div class="col col-lg-8">
+      <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+  </div>
+</div>
+    </div>
+    <div class="col-md-auto">
+      Variable width content
+    </div>
+    <div class="col col-lg-2">
+      3 of 3
+    </div>
+  </div>
+</section> {% endcomment %}
+<section class="ftco-section ftco-no-pt bg-white" style="margin-top:7%">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 heading-section text-start ftco-animate">
+				<h2 class="mb-2">Properties</h2>
+			</div>
+		</div>
+	</div>
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <!-- Sidebar with search categories and price range -->
+            <div class="sidebar">
+                <!-- Search categories -->
+                <h4>Search Properties</h4>
+                <input type="text" class="form-control mb-3" style="border-color:#089188;" placeholder="Search...." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <h4>Features</h4>
+                <div class="col-sm">
+                       <input type="checkbox" name="thousi" id="thousi">
+                       <label for="thousi">Gym</label>
+                       <br>
+                       <input type="checkbox" name="thousi" id="thousi">
+                       <label for="thousi">PlayGround</label>
+                       <br>
+                       <input type="checkbox" name="thousi" id="thousi">
+                       <label for="thousi">Library</label>
+                       <br>
+                       <input type="checkbox" name="thousi" id="thousi">
+                       <label for="thousi">Swimming Pool</label>
+                       <br>
+                       <input type="checkbox" name="thousi" id="thousi">
+                       <label for="thousi">thousi</label>
+                       <br>
+                       <input type="checkbox" name="thousi" id="thousi">
+                       <label for="thousi">thousi</label>
+                   </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+    <!-- Cards -->
+    <div class="row">
+        <!-- Individual card example -->
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Property 1</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Property 2</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Property 3</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Property 3</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Property 4</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Property 5</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'images/realestate.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <a href="{% url 'property_detail' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat the above card structure for other cards -->
+    </div>
+</div>
+
+    </div>
+</div>
+    </div>
+</section>
+{% endblock content %}

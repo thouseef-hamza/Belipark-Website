@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}Belipark{% endblock title %}</title>
+    <title>{% block title %}Bhumi Reality{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -39,7 +39,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    {% include "includes/navbar.html" %} {% block content %} {% endblock content    %}
+    
+
+
+    {% block content %} 
+    
+    {% endblock content %}
     <!-- Footer -->
     {% include "includes/footer.html" %}
     <!-- Footer Ends -->
