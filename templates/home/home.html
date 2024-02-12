@@ -53,7 +53,7 @@
 		{% comment %}
 	</div> 
 </section> {% endcomment %}
-<section class="ftco-section ftco-intro" style="background-color: #d2b570;">
+{% comment %} <section class="ftco-section ftco-intro" style="background-color: #d2b570;">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row justify-content-end">
@@ -64,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> {% endcomment %}
 
 <!-- About Start -->
 <div class="container-fluid about">
@@ -293,7 +293,7 @@
 					was incepted in 2006 with the intention of
 					dramatically transforming the real estate
 					city.</p>
-				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" href="">Learn More</a>
+				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" href="#contact-us">Learn More</a>
 			</div>
 		</div>
 
@@ -314,9 +314,16 @@
 					</div>
 				</div>
 				<div class="col-sm mb-3 ">
-				<div class="card" style="width: 12rem;">
-					<img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="...">
-					</div>
+					<a href="{% url 'property_list' %}">
+						<div class="card" style="width: 12rem;background-color:#089188;height:8rem;">
+							<div class="card-body text-center text-white">
+								<p>View More</p>
+								<i class="fa fa-search"></i>
+							</div>
+							{% comment %} <img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="..."> {% endcomment %}
+						</div>
+
+					</a>
 				</div>
 			</div>
 	</div>
@@ -396,4 +403,39 @@
 	</div>
 </section>
 
+<section class="ftco-section ftco-no-pt bg-light" id="contact-us">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+				<h2 class="mb-2">Contact Us</h2>
+			</div>
+		</div>
+		<div class="row">
+			{% comment %} <div class="col-md-6">
+				<img src="{% static '' %}" width="100%" alt="">
+			</div> {% endcomment %}
+			<div class="col-md-12 block-9 mb-md-5">
+            <form action="#" class="bg-light p-5 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+          
+          </div>
+			</div>
+		</div>
+	</div>
+</section>
 {% endblock content %}
