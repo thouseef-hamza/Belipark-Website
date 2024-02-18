@@ -3,5 +3,5 @@ from property import views
 
 urlpatterns = [
     path("",views.PropertyListView.as_view(),name="property_list"),
-    path("detail/",views.PropertyRetriveView.as_view(),name="property_detail")
+    path("detail/<int:id>/",views.PropertyRetriveView.as_view(),name="property_detail")
 ]

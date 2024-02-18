@@ -1,4 +1,70 @@
 {% extends "index.html" %}
 {% block content %}
+{% include "includes/navbar.html" %}
+{% load static %}
 
+<!-- About Start -->
+<div class="container-fluid about">
+    <div class="container py-5">
+        <h1 class="section-about-title pe-3">About <span style="color:#dc1666">Us</span> </h1>
+        <div class="row g-5 align-items-center justify-content-center">
+			<div class="col-sm-4">
+				<img src="{% static 'images/logo.png' %}" class="img-fluid w-10 h-10" alt="">
+			</div>
+			<div class="col-sm-12"
+				style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8));">
+				<h1 class="mb-4">Welcome to <span class="text-primary">BhumiReality</span></h1>
+				<p class="mb-4">Alaska group is leading a team of the brightest minds in architecture,
+					G R O U P engineering and designing to develop the idea of township in a reality.</p>
+				<p class="mb-4">Revered as one of the most reliable real estate
+					developers in Madhya Pradesh, Alaska Group
+					was incepted in 2006 with the intention of
+					dramatically transforming the real estate
+					landscape of Indore and nearby areas by
+					introducing world-class residential and
+					commercial spaces. Alaska Group in the past 16
+					years has completed it’s growth in premium
+					properties across the length and breadth of the
+					city.</p>
+				<p class="mb-4">Trusted by generations of property owners,
+					Alaska Group have over the years created their
+					own niche and have become a formidable force
+					in the growing real estate market. Known for
+					our timely deliveries, customer relations and
+					infallible infrastructure, we pride ourselves in
+					understanding the needs of the market and
+					catering to it exclusively in our own trademark
+					style!</p>
+			</div>
+		</div>
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-sm-4">
+                    <div class="card mb-5" >
+                        <img src="{% static 'images/logo.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Director Name 1</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-5" >
+                        <img src="{% static 'images/logo.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Director Name 2</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" >
+                        <img src="{% static 'images/logo.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Director Name 3</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
 {% endblock content %}

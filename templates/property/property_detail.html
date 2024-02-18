@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 {% include "includes/navbar.html" %}
-<section class="ftco-section ftco-no-pt bg-white" style="margin-top:8%">
+<section class="ftco-section ftco-no-pt bg-white" style="margin-top:4%">
     	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 heading-section text-start ftco-animate">
-				<h2 class="mb-2">Property 1</h2>
+				<h2 class="mb-2">{{property_data.name}}</h2>
 			</div>
 		</div>
 	</div>
@@ -14,34 +14,13 @@
   <div class="row">
     <div class="col-md-5">
       <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
-      <div class="mt-4">
-        <h2  class="mb-2">Gallery </h2>
-	  </div>
-      <div class="container">
-          <div class="row">
-            <div class="col-md-6 mb-4">
-                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
-            </div>
-            <div class="col-md-6 mb-4">
-                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
-            </div>
-            <div class="col-md-6 mb-4">
-                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
-            </div>
-            <div class="col-md-6 mb-4">
-                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
-            </div>
-          </div>
-      </div>
     </div>
-    <div class="col-sm">
+    <div class="col-sm-7">
         <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            {{property_data.descroption|linebreaks}}
         </p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-        <div class="container">
+
+        {% comment %} <div class="container">
             <div class="row">
                     <div class="col-sm-6 mb-2">
                         <div class="card" style="background-color:#089188;">
@@ -109,11 +88,32 @@
                                 <h5 class="card-title">Children Park</h5>
                             </div>
                      </div> {% endcomment %}
-                </div>
+               {% comment %} </div>
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
   </div>
+
+
+  <div class="mt-4">
+        <h2  class="mb-2">Gallery </h2>
+	  </div>
+      <div class="container">
+          <div class="row my-0">
+            <div class="col-6 col-md-3 mb-4">
+                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <img src="{% static 'images/realestate.jpg' %}" alt="" width="100%"/>
+            </div>
+          </div>
+      </div>
   {% comment %} <div class="container mt-5">
     <div class="row">
         <div class="col-sm-6">

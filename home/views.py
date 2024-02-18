@@ -8,4 +8,6 @@ class HomeView(View):
         return render(request,"home/home.html")
     
     
-    
+def aboutView(request):
+    if request.method == "GET":
+        return render(request,"home/about_us.html")

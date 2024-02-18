@@ -3,6 +3,7 @@
 <nav
   class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
   id="ftco-navbar"
+  style="position: relative;top:0px;!important"
 >
   <div class="container">
     <img src="{% static 'images/logo.png' %}" alt=""  width="80px"/>
@@ -23,8 +24,8 @@
         <li class="nav-item active"><a href="{% url 'home_view' %}" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="{% url 'home_view' %}" class="nav-link">About US</a></li>
         <li class="nav-item"><a href="{% url 'property_list' %}" class="nav-link">Properties</a></li>
-        {% comment %} <li class="nav-item"><a href="{% url 'home_view' %}" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="{% url 'home_view' %}" class="nav-link">Blog</a></li> {% endcomment %}
+        <li class="nav-item"><a href="{% url 'property_list' %}" class="nav-link">Our Projects</a></li>
+        {% comment %} <li class="nav-item"><a href="{% url 'home_view' %}" class="nav-link">Blog</a></li> {% endcomment %}
         <li class="nav-item"><a href="#contact-us" class="nav-link">Contact US</a></li>
       </ul>
     </div>
