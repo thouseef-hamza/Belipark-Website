@@ -11,13 +11,8 @@ class Amenity(models.Model):
     def __str__(self):
         return self.name
 
-
-def property_gallery_upload_path(instance, filename):
-    property_name = instance.property_name.title.replace(
-        " ", "_"
-    )
-    return os.path.join("property", property_name, "images", filename)
-
+class Service(models.Model):
+    name = models.CharField(max_length=100)
 
 class Property(models.Model):
     class PropertyAvailability(models.TextChoices):
@@ -25,7 +20,7 @@ class Property(models.Model):
         FOR_RENT="for_rent","For Rent"
         FOR_SALE="for_sale","For Sale"
         AVAILABLE="available","Available"
-    name = models.CharField(max_length=100)
+    property_name = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     no_of_bedrooms = models.IntegerField()
@@ -33,9 +28,6 @@ class Property(models.Model):
     square_footage = models.IntegerField()
     description = models.TextField()
     availability=models.CharField(max_length=20,choices=PropertyAvailability.choices,default=PropertyAvailability.AVAILABLE)
-    year_built = models.IntegerField(
-        null=True, blank=True
-    )  
     main_photo = models.ImageField(
         upload_to="property_photos/"
     )  
@@ -45,11 +37,18 @@ class Property(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )  
-    
-class PropertyGallery(models.Model):
-    property_name=models.ForeignKey(Property,on_delete=models.CASCADE,related_name="property_images")
-    image = models.ImageField(upload_to=property_gallery_upload_path)
 
-class Projects(models.Model):
-    name = models.CharField(max_length=255)
-    
+class Project(models.Model):
+    project_name = models.CharField(max_length=255) 
+    address = models.CharField(max_length=255)
+    description=models.TextField()
+    amenity=models.ManyToManyField(Amenity)
+    service=models.ManyToManyField(Service)
+    location_image=models.ImageField()
+    main_photo = models.ImageField(upload_to="project_photos/")
+
+
+class Gallery(models.Model):
+    property_id=models.ForeignKey(Property,on_delete=models.CASCADE,related_name="property_images",null=True,blank=True)
+    project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_images",null=True,blank=True)
+    image = models.ImageField(upload_to="assets/images/")

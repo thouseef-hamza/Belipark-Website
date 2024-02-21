@@ -73,13 +73,12 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h4 class="card-title">{{property.name}}</h4>
+                            <h4 class="card-title">{{property.property_name}}</h4>
                             <h6 style="color:green;">{{property.availability.title}}</h6>
-                            {% comment %} <p>{{property.description|truncatechars:100}}</p> {% endcomment %}
                             <h6>Address : {{property.address}}</h6>
                             <h6>Plot Size : {{property.square_footage}}</h6>
-                            <h6>Price : {{property.price}}</h6>
-                            <a href="{% url 'property_detail' property.id %}" class="btn btn-primary">Learn More</a>
+                            <h6>Price : {{property.price}}</h6> 
+                            <a href="{% url 'assets:property_detail' property.id %}" class="btn btn-primary">Learn More</a>
                         </div>
                     </div>
                 </div>

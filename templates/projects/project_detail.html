@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block content %}
+{% include "includes/navbar.html" %}
+<section class="ftco-section ftco-no-pt bg-white" style="margin-top:2%">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 heading-section text-start ftco-animate">
+				<h2 class="mb-2">{{project_name}}</h2>
+			</div>
+		</div>
+        <div class="row">
+            <div class="owl-carousel carousel-car">
+                {% for image in images %}
+                <div class="item">
+                    <img src="{{image.url}}" height="250px" width="100px" class="card-img-top" alt="...">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <p>{{description|linebreaks}}</p>
+        </div>
+	</div>
+</section>
+{% endblock content %}

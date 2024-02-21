@@ -9951,7 +9951,7 @@ textarea.form-control {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .services-shadow-hover:hover{
-  box-shadow: 0 0 20px #dc1666;
+  box-shadow: 0 0 20px #d2b570;
   transform: scale(1.05);
 }
 .btn.btn-primary {

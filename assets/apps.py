@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PropertyConfig(AppConfig):
+class AssetsConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "property"
+    name = "assets"
