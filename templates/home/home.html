@@ -23,10 +23,10 @@
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="{% url 'home:home_view' %}" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="{% url 'home:home_view' %}" class="nav-link">About US</a></li>
+        <li class="nav-item"><a href="{% url 'home:about_view' %}" class="nav-link">About US</a></li>
         <li class="nav-item"><a href="{% url 'assets:property_list' %}" class="nav-link">Properties</a></li>
-        <li class="nav-item"><a href="{% url 'assets:property_list' %}" class="nav-link">Our Projects</a></li>
-        {% comment %} <li class="nav-item"><a href="{% url 'home_view' %}" class="nav-link">Blog</a></li> {% endcomment %}
+        <li class="nav-item"><a href="{% url 'assets:project_list' %}" class="nav-link">Our Projects</a></li>
+        <li class="nav-item"><a href="{% url 'home:home_view' %}" class="nav-link">Blog</a></li>
         <li class="nav-item"><a href="#contact-us" class="nav-link">Contact US</a></li>
       </ul>
     </div>
@@ -195,7 +195,7 @@
 	<div class="container">
 		<div class="row justify-content-center mb-5">
 			<div class="col-md-7 text-center heading-section ftco-animate">
-				<h2 class="mb-3">Our Faculty</h2>
+				<h2 class="mb-3">Our Facilities</h2>
 			</div>
 		</div>
 		<div class="row h-100">
@@ -320,45 +320,36 @@
 			</div>
 		</div>
 		<div class="row g-5 align-items-center">
+			{% for property in properties|slice:":1" %}
 			<div class="col-lg-5">
-				<img src="{% static 'images/realestate.jpg' %}" class="img-fluid w-100 h-100" alt="">
+				<img src="{{property.main_photo.url}}" class="img-fluid w-100 h-auto rounded" alt="{{property.property_name}}">
 			</div>
 			<div class="col-lg-7"
 				style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8));">
-				<h1 class="mb-4">Laxima</h1>
-				<p class="mb-2">Alaska group is leading a team of the brightest minds in architecture,
-					G R O U P engineering and designing to develop the idea of township in a reality.</p>
-				<p class="mb-4">Revered as one of the most reliable real estate
-					developers in Madhya Pradesh, Alaska Group
-					was incepted in 2006 with the intention of
-					dramatically transforming the real estate
-					city.</p>
-				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" style="border-color:#dc1666;" href="#contact-us">Learn More</a>
+				<h1>{{property.property_name}}</h1>
+				<p class="mb-2">{{property.description|linebreaks|truncatechars:380}}</p>
+				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" style="border-color:#dc1666;" href="{% url 'assets:property_detail' property.id %}">Learn More</a>
 			</div>
+			{% endfor %}
 		</div>
 
 			<div class="row justify-content-between g-5 mt-5">
+				{% for property in properties %}
 				<div class="col-sm-6 col-md-3 mb-3">
-				<div class="card">
-					<img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="...">
+				<div class="card" style="height:11rem;">
+					<a href="{% url 'assets:property_detail' property.id %}">
+
+						<img src="{{property.main_photo.url}}" style="object-fit:contain;" height="100%" class="card-img-top" alt="{{property.property_name}}">
+					</a>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-3 mb-3">
-				<div class="card">
-				<img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="...">
-				</div>
-				</div>
-				<div class="col-sm-6 col-md-3 mb-3">
-				<div class="card">
-					<img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="...">
-					</div>
-				</div>
+				{% endfor %}
 				<div class="col-sm-6 col-md-3 mb-3 ">
 					<a href="{% url 'assets:property_list' %}">
-						<div class="card" style="height:10rem;background-color:#dc1666;">
+						<div class="card" style="height:11rem;background-color:#dc1666;">
 							<div class="card-body text-center text-white">
-								<p>View More</p>
-								<i class="fa fa-search"></i>
+								<p class="text-center font-weight-bold mt-3">View More</p>
+								<i class="fa fa-search fa-2x mt-1"></i>
 							</div>
 							{% comment %} <img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="..."> {% endcomment %}
 						</div>

@@ -9981,3 +9981,6 @@ textarea.form-control {
     padding-left: 26px;
   }
 }
+.project-detail-hover:hover{
+  cursor: pointer;
+}

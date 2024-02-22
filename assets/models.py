@@ -5,7 +5,7 @@ import os
 
 class Amenity(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True,blank=True)
     image = models.ImageField(upload_to="amenity_images/")
 
     def __str__(self):
@@ -13,6 +13,9 @@ class Amenity(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
+    
+    def __str__(self) -> str:
+        return self.name
 
 class Property(models.Model):
     class PropertyAvailability(models.TextChoices):
@@ -37,7 +40,10 @@ class Property(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )  
-
+    
+    def __str__(self) -> str:
+        return self.property_name
+    
 class Project(models.Model):
     project_name = models.CharField(max_length=255) 
     address = models.CharField(max_length=255)
@@ -46,9 +52,14 @@ class Project(models.Model):
     service=models.ManyToManyField(Service)
     location_image=models.ImageField()
     main_photo = models.ImageField(upload_to="project_photos/")
+    
+    def __str__(self) -> str:
+        return self.project_name
 
 
 class Gallery(models.Model):
     property_id=models.ForeignKey(Property,on_delete=models.CASCADE,related_name="property_images",null=True,blank=True)
     project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_images",null=True,blank=True)
     image = models.ImageField(upload_to="assets/images/")
+    
+    

@@ -12,13 +12,62 @@
             <div class="owl-carousel carousel-car">
                 {% for image in images %}
                 <div class="item">
-                    <img src="{{image.url}}" height="250px" width="100px" class="card-img-top" alt="...">
+                    <img src="{{image.image.url}}" height="250px" width="100px" class="card-img-top" alt="...">
                 </div>
                 {% endfor %}
             </div>
         </div>
         <div class="row">
             <p>{{description|linebreaks}}</p>
+        </div>
+        {% if services %}
+        <div class="row">
+            <h1 class="text font-weight-bold" >Services</h1>
+        </div>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-sm-4 mb-2">
+                <div class="card bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-white font-weight-bold">Gym</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if amenity %}
+        <div class="row">
+            <h1 class="text font-weight-bold" >Amenities</h1>
+        </div>
+        <div class="row">
+			<div class="col-md-12">
+				<div class="carousel-car owl-carousel">
+                    {% for detail in amenity %}
+					<div class="item h-100">
+						<div class="car-wrap rounded ftco-animate">
+							<div class="img rounded d-flex align-items-end"
+								style="background-image: url({{detail.image.url}});">
+							</div>
+							<div class="text">
+								<h2 class="mb-0"><a href="#">{{detail.name}}</a></h2>
+							</div>
+						</div>
+					</div>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+        {% endif %}
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="text text-center project-detail-hover">Plot Layout</h3>
+                <img src="{{image.url}}" height="100%" width="100%" alt="">
+            </div>
+            <div class="col-sm-6">
+                <h3 class="text text-center project-detail-hover">Location</h3>
+                <img src="{{image.url}}" height="100%" width="100%" alt="">
+            </div>
         </div>
 	</div>
 </section>
