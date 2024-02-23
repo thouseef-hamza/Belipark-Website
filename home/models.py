@@ -3,9 +3,11 @@ from django.db import models
 # Create your models here.
 
 
-class Features(models.Model):
-    title_name=models.CharField(max_length=300)
-    description=models.TextField()
+class ContactUS(models.Model):
+    full_name=models.CharField(max_length=125)
+    email=models.EmailField()
+    subject=models.CharField(max_length=255,null=True,blank=True)
+    message=models.TextField()
     
-class Plans(models.Model):
-    pass
+    def __str__(self) -> str:
+        return self.full_name
