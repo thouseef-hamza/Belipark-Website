@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+{% include "includes/navbar.html" %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-5 mb-4">Latest Blog Posts</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="blog-post">
+          <img src="https://via.placeholder.com/600x300" alt="Blog Post Image" class="img-fluid">
+          <h2 class="post-title">Blog Post Title 1</h2>
+          <p class="post-meta">Posted on January 1, 2024 by Admin</p>
+          <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel faucibus ligula. Proin in eros non odio lacinia efficitur. Vestibulum maximus velit id erat consectetur, sed pharetra libero varius.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="blog-post">
+          <img src="https://via.placeholder.com/600x300" alt="Blog Post Image" class="img-fluid">
+          <h2 class="post-title">Blog Post Title 2</h2>
+          <p class="post-meta">Posted on February 1, 2024 by Admin</p>
+          <p class="post-content">Suspendisse malesuada libero in libero fringilla, ut ultrices justo tincidunt. Proin non nisl eget enim dapibus consectetur. Integer vestibulum sollicitudin ipsum, ac vestibulum justo efficitur vel.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <!-- Add more blog posts as needed -->
+    </div>
+  </div>
+{% endblock content %}

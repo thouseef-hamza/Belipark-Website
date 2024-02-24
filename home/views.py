@@ -43,4 +43,5 @@ def createContact(request):
                 "status": 201,
             }
         )
-    return redirect("home:home_view")   
+    return redirect("home:home_view") 
+

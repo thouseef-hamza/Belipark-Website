@@ -74,7 +74,7 @@
 			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
 			responsive:{
 				0:{
-					items: 4
+					items: 1
 				},
 				600:{
 					items: 2

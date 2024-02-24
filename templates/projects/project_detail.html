@@ -1,11 +1,29 @@
 {% extends "index.html" %}
 {% block content %}
 {% include "includes/navbar.html" %}
+<style>
+.card-title {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.2rem; 
+    }
+}
+
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 1rem; 
+    }
+}
+
+</style>
 <section class="ftco-section ftco-no-pt bg-white" style="margin-top:2%">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 heading-section text-start ftco-animate">
-				<h2 class="mb-2" style="font-family: 'Nunito', sans-serif;font-weight: 900;">{{project_name}}</h2>
+				<h2 class="mb-2 text-center" style="font-family: 'Nunito', sans-serif;font-weight: 900;">{{project_name}}</h2>
 			</div>
 		</div>
         <div class="row">
@@ -18,7 +36,7 @@
             </div>
         </div>
         <div class="row">
-            <p>{{description|linebreaks}}</p>
+            <p class="text-body">{{description|linebreaks}}</p>
         </div>
         {% if services %}
         <div class="row">
@@ -26,10 +44,17 @@
         </div>
         <div class="row">
             {% for service in services %}
-            <div class="col-sm-4 mb-2">
+            <div class="col-6 col-md-4 mb-2">
                 <div class="card bg-primary">
                     <div class="card-body">
-                        <h5 class="card-title text-white font-weight-bold">Gym</h5>
+                        <h5 class="card-title text-white font-weight-bold">{{service.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="card bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-white font-weight-bold">{{service.name}}</h5>
                     </div>
                 </div>
             </div>
@@ -38,7 +63,7 @@
         {% endif %}
         {% if amenity %}
         <div class="row">
-            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;" >Amenities</h1>
+            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-top:1rem;" >Amenities</h1>
         </div>
         <div class="row">
 			<div class="col-md-12">

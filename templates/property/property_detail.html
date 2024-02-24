@@ -6,7 +6,7 @@
     	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 heading-section text-start ftco-animate">
-				<h2 class="mb-2" style="font-family: 'Nunito', sans-serif;font-weight: 900;">{{property_name}}</h2>
+				<h2 class="mb-2 text-center" style="font-family: 'Nunito', sans-serif;font-weight: 900;">{{property_name}}</h2>
 			</div>
 		</div>
 	</div>
@@ -16,10 +16,10 @@
       <img src="{{image.url}}" class="rounded" alt="" width="100%"/>
     </div>
     <div class="col-sm-12 col-md-7">    
-        <h1>
+        <h3>
             &nbsp;&#x20b9; {{price}}
-        </h1>
-        <h3 style="color:{% if availability == 'sold out' %}red {% else %}green{% endif %}">&nbsp;{{ availability|upper}}</h3>
+        </h3>
+        <h5 style="color:{% if availability == 'sold out' %}red{% else %}green{% endif %}">&nbsp;{{ availability|upper}}</h5>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <div class="block-23 mb-3">
