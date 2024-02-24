@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from assets.models import Property,Project,Gallery
+from assets.models import Property,Project
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 # Create your views here.

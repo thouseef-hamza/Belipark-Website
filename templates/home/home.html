@@ -405,58 +405,18 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="carousel-car owl-carousel">
+					{% for gallery in galleries %}
 					<div class="item h-100">
 						<div class="car-wrap rounded ftco-animate">
 							<div class="img rounded d-flex align-items-end"
-								style="background-image: url({% static 'images/yoga.jpeg' %});">
+								style="background-image: url({{gallery.image.url}});">
 							</div>
 							<div class="text">
-								<h2 class="mb-0"><a href="#">MEDITATION/YOGA LAWN</a></h2>
-								<div class="d-flex mb-3">
-									<span class="cat">“Nature is where you belong"</span>
-								</div>
+								<h2 class="mb-0"><a href="#">{{gallery.title}}</a></h2>
 							</div>
 						</div>
 					</div>
-					<div class="item h-100">
-						<div class="car-wrap rounded ftco-animate">
-							<div class="img rounded d-flex align-items-end"
-								style="background-image: url({% static 'images/basketball.webp' %});">
-							</div>
-							<div class="text">
-								<h2 class="mb-0"><a href="#">BASKETBALL COURT</a></h2>
-								<div class="d-flex mb-3">
-									<span class="cat">The Home is your playground!.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item h-100">
-						<div class="car-wrap rounded ftco-animate">
-							<div class="img rounded d-flex align-items-end"
-								style="background-image: url({% static 'images/gym.webp' %});">
-							</div>
-							<div class="text">
-								<h2 class="mb-0"><a href="#">OUTDOOR GYM</a></h2>
-								<div class="d-flex mb-3">
-									<span class="cat">Everyone Need a Healthy Life</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item h-100">
-						<div class="car-wrap rounded ftco-animate">
-							<div class="img rounded d-flex align-items-end"
-								style="background-image: url({% static 'images/gardenpark.jpeg' %});">
-							</div>
-							<div class="text">
-								<h2 class="mb-0"><a href="#">GARDEN OF FIVE SENSES</a></h2>
-								<div class="d-flex mb-3">
-									<span class="cat">Lets through the senses of FIVE</span>
-								</div>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>

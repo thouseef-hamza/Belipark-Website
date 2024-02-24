@@ -57,7 +57,7 @@ class Project(models.Model):
         return self.project_name
 
 
-class Gallery(models.Model):
+class ImageGallery(models.Model):
     property_id=models.ForeignKey(Property,on_delete=models.CASCADE,related_name="property_images",null=True,blank=True)
     project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_images",null=True,blank=True)
     image = models.ImageField(upload_to="assets/images/")

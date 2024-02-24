@@ -1,16 +1,16 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from assets.models import Property,Amenity
+from assets.models import Property
 from home.forms import ContactUSForm
 from django.http import JsonResponse
-from .models import ContactUS,Blog
+from .models import ContactUS,Blog,HomeGallery
 from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def homeView(request):
     if request.method == "GET":
         property_data=Property.objects.all()[:4]
-        gallery_data=Amenity.objects.all()
+        gallery_data=HomeGallery.objects.all().order_by("-id")
         context={
             "properties":property_data,
             "galleries":gallery_data
