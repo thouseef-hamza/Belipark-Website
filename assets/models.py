@@ -43,16 +43,17 @@ class Property(models.Model):
     
     def __str__(self) -> str:
         return self.property_name
-    
+
 class Project(models.Model):
     project_name = models.CharField(max_length=255) 
     address = models.CharField(max_length=255)
     description=models.TextField()
     amenity=models.ManyToManyField(Amenity)
-    service=models.ManyToManyField(Service)
-    location_image=models.ImageField()
+    service = models.ManyToManyField(Service)
+    plot_layout=models.ImageField(upload_to="project_plot/",null=True,blank=True)
+    location=models.URLField(max_length=500,null=True,blank=True)
     main_photo = models.ImageField(upload_to="project_photos/")
-    
+
     def __str__(self) -> str:
         return self.project_name
 
@@ -61,5 +62,3 @@ class ImageGallery(models.Model):
     property_id=models.ForeignKey(Property,on_delete=models.CASCADE,related_name="property_images",null=True,blank=True)
     project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_images",null=True,blank=True)
     image = models.ImageField(upload_to="assets/images/")
-    
-    

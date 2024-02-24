@@ -24,3 +24,15 @@ class Blog(models.Model):
 class HomeGallery(models.Model):
     title=models.CharField(max_length=200)
     image=models.ImageField(upload_to="homegallery/")
+    
+class AboutUS(models.Model):
+    content=models.TextField()
+
+class Director(models.Model):
+    aboutus=models.ForeignKey(AboutUS,related_name="directors_images",on_delete=models.CASCADE)
+    full_name=models.CharField(max_length=155)
+    image=models.ImageField(upload_to="directors")
+    position=models.CharField(max_length=100,null=True)
+    
+
+    

@@ -1,11 +1,11 @@
 <!-- Nav Starts -->
 {% load static %}
 <nav
-  class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+  class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake"
   id="ftco-navbar"
 >
   <div class="container">
-    <a href="{% url 'home:home_view' %}">
+    <a href="{% url 'home:home_view' %}" class="mr-lg">
       <img src="{% static 'images/logo.png' %}" alt=""  width="80px"/>
     </a>
     <button
@@ -14,14 +14,14 @@
       data-toggle="collapse"
       data-target="#ftco-nav"
       aria-controls="ftco-nav"
-      aria-expanded="false"
+      aria-expanded="true"
       aria-label="Toggle navigation"
     >
       <span class="oi oi-menu"></span> Menu
     </button>
 
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
+    <div class="collapse navbar-collapse ml-5" id="ftco-nav">
+      <ul class="navbar-nav ml-5">
         <li class="nav-item active"><a href="{% url 'home:home_view' %}" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="{% url 'home:about_view' %}" class="nav-link">About US</a></li>
         <li class="nav-item"><a href="{% url 'assets:property_list' %}" class="nav-link">Properties</a></li>

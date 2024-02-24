@@ -149,7 +149,6 @@
 			<div class="col-sm-12"
 				style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8));">
 				<h1 class="section-about-title pe-3 text-center" style="font-family: 'Nunito', sans-serif;font-weight: 900;">About <span style="color:#dc1666;font-family: 'Nunito', sans-serif;font-weight: 900;">Us</span></h1>
-				<h1 class="mb-4">Welcome to <span class="text-primary">Bhumi Realty</span></h1>
 				<p class="mb-4">Alaska group is leading a team of the brightest minds in architecture,
 					G R O U P engineering and designing to develop the idea of township in a reality.</p>
 				<p class="mb-4">Revered as one of the most reliable real estate
@@ -362,33 +361,24 @@
 				<h1>{{property.property_name}}</h1>
 				<p class="mb-2">{{property.description|linebreaks|truncatechars:380}}</p>
 				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" style="border-color:#dc1666;" href="{% url 'assets:property_detail' property.id %}">Learn More</a>
+				<a class="ml-2 btn rounded-pill py-3 px-5 mt-2 read-btn btn-outline-black" style="border-color:#dc1666;color:#dc1666;" onclick="navigate('contact-us')">Contact US</a>
 			</div>
 			{% endfor %}
 		</div>
 
-			<div class="row justify-content-between g-5 mt-5">
+			<div class="row justify-content-between g-5 mt-5 carousel-car owl-carousel">
 				{% for property in properties %}
 				<div class="col-sm-6 col-md-3 mb-3">
-				<div class="card" style="height:11rem;">
+				<div class="card border-0 d-flex justify-content-center">
 					<a href="{% url 'assets:property_detail' property.id %}">
-
-						<img src="{{property.main_photo.url}}" style="object-fit:contain;" height="100%" class="card-img-top" alt="{{property.property_name}}">
+						<img src="{{property.main_photo.url}}" style="height:11rem;width:21rem;:object-fit:cover"  class="card-img-top" alt="{{property.property_name}}">
 					</a>
 					</div>
 				</div>
 				{% endfor %}
-				<div class="col-sm-6 col-md-3 mb-3 ">
-					<a href="{% url 'assets:property_list' %}">
-						<div class="card" style="height:11rem;background-color:#dc1666;">
-							<div class="card-body text-center text-white">
-								<p class="text-center font-weight-bold mt-3">View More</p>
-								<i class="fa fa-search fa-2x mt-1"></i>
-							</div>
-							{% comment %} <img src="{% static 'images/realestate.jpg' %}" class="card-img-top" alt="..."> {% endcomment %}
-						</div>
-
-					</a>
-				</div>
+			</div>
+			<div class="row justify-content-center">
+				<a class="btn btn-primary py-3 px-5 text-center" style="border-color:#dc1666;" href="{% url 'assets:property_list' %}">View More</a>
 			</div>
 	</div>
 </div>

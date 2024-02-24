@@ -27,7 +27,7 @@
 			</div>
 		</div>
         <div class="row">
-            <div class="owl-carousel carousel-car">
+            <div class="owl-carousel carousel-car  m-2">
                 {% for image in images %}
                 <div class="item">
                     <img src="{{image.image.url}}" class="rounded" height="250px" width="100px" class="card-img-top" alt="...">
@@ -35,12 +35,17 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="row">
+        <div class="row m-2">
             <p class="text-body">{{description|linebreaks}}</p>
         </div>
+        <span class="icon icon-map-marker m-2"></span
+            ><span class="text"
+              > Bhumi realty 
+01 ellite empire shivdham limbodi indore</span
+            >
         {% if services %}
         <div class="row">
-            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;" >Services</h1>
+            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-left:1rem;" >Services</h1>
         </div>
         <div class="row">
             {% for service in services %}
@@ -63,7 +68,7 @@
         {% endif %}
         {% if amenity %}
         <div class="row">
-            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-top:1rem;" >Amenities</h1>
+            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-top:1rem;margin-left:1rem;" style="ml-3" >Amenities</h1>
         </div>
         <div class="row">
 			<div class="col-md-12">
@@ -85,14 +90,18 @@
 		</div>
         {% endif %}
         <div class="row">
+            {% if plot_layout.url %}
             <div class="col-sm-12">
                 <h3 class="text text-center project-detail-hover" style="font-family: 'Nunito', sans-serif;font-weight: 900;">Plot Layout</h3>
-                <img src="{{image.url}}" height="auto" width="100%" alt="">
+                <img src="{{plot_layout.url}}" height="auto" width="100%" alt="">
             </div>
+            {% endif %}
+            {% if location %}
             <div class="col-sm-12">
                 <h3 class="text text-center project-detail-hover" style="font-family: 'Nunito', sans-serif;font-weight: 900;">Location</h3>
-                <img src="{{image.url}}" height="auto" width="100%" alt="">
+                <iframe src="{{location}}" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            {% endif %}
         </div>
 	</div>
 </section>

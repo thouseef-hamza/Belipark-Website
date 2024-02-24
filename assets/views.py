@@ -61,6 +61,8 @@ class ProjectRetriveView(View):
             "services": project.service.all(),
             "image": project.main_photo,
             "images": project.project_images.all(),
+            "plot_layout":project.plot_layout,
+            "location":project.location
         }
         return render(
             request, "projects/project_detail.html", context=context
