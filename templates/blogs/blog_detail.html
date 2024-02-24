@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+{% include "includes/navbar.html" %}
+  <style>
+    .blog-post-img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8">
+        <article>
+          <img src="{{blog.image.url}}" class="rounded" alt="Blog Post Image" width="100%" height="auto" class="blog-post-img mb-4">
+          <h1 class="mb-3">{{blog.title}}</h1>
+          <p class="text-muted mb-3">Posted {{blog.created_at}} by Admin</p>
+          <p>{{blog.content|linebreaks}}</p>
+        </article>
+      </div>
+      <div class="col-md-4">
+  <div class="sidebar">
+    <h3 class="mb-4">Recent Blogs</h3>
+    <div class="list-group">
+      <a href="{% url 'home:blog_detail' blog.id %}" class="list-group-item list-group-item-action mb-3 shadow-sm">
+        <div class="d-flex justify-content-between">
+          <img src="{{blog.image.url}}" width="150px" alt="Blog Post Image" class="mr-3 rounded">
+          <div>
+            <h5 class="mb-1">{{blog.title}}</h5>
+            <small class="text-muted">{{blog.created_at}}</small>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+{% endblock content %}

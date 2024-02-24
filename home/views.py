@@ -3,7 +3,8 @@ from django.views import View
 from assets.models import Property,Amenity
 from home.forms import ContactUSForm
 from django.http import JsonResponse
-from .models import ContactUS
+from .models import ContactUS,Blog
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def homeView(request):
@@ -45,3 +46,11 @@ def createContact(request):
         )
     return redirect("home:home_view") 
 
+def blogList(request):
+    blogs=Blog.objects.all()
+    return render(request,"blogs/blog_list.html",{"blogs":blogs})
+
+def blogDetail(request,id):
+    blog=get_object_or_404(Blog,id=id) 
+    blogs=Blog.objects.all().order_by("-created_at")
+    return render(request,"blogs/blog_detail.html",context={"blog":blog,"blogs":blogs})

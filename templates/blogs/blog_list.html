@@ -2,28 +2,33 @@
 {% load static %}
 {% include "includes/navbar.html" %}
 {% block content %}
+{% include "includes/navbar.html" %}
+{% if not blogs %}
+<div class="container text-center my-5">
+    <h1>No Data Available</h1>
+    <p class="lead">Sorry, there is no data to display.</p>
+    <a href="{% url 'home:home_view' %}" class="btn btn-primary">Go Back</a>
+  </div>
+  {% else %}
+
   <div class="container">
-    <h1 class="mt-5 mb-4">Latest Blog Posts</h1>
+    <h1 class="mt-5 mb-4" style="font-family: 'Nunito', sans-serif;font-weight: 900;">Blog Posts</h1>
     <div class="row">
-      <div class="col-md-6">
-        <div class="blog-post">
-          <img src="https://via.placeholder.com/600x300" alt="Blog Post Image" class="img-fluid">
-          <h2 class="post-title">Blog Post Title 1</h2>
-          <p class="post-meta">Posted on January 1, 2024 by Admin</p>
-          <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel faucibus ligula. Proin in eros non odio lacinia efficitur. Vestibulum maximus velit id erat consectetur, sed pharetra libero varius.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
+      {% for blog in blogs %}
+      <div class="col-md-4">
+        <div class="card mb-2">
+          <img src="{{blog.image.url}}" alt="{{blog.title}}" class="card-img-top">
+          <div class="card-body">
+            <h2 class="card-title">{{blog.title}}</h2>
+            <p class="card-text">{{blog.created_at}}</p>
+            <p class="card-text">{{blog.content|truncatechars:200}}</p>
+            <a href="{% url 'home:blog_detail' blog.id %}" class="btn btn-primary">Read More</a>
+          </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="blog-post">
-          <img src="https://via.placeholder.com/600x300" alt="Blog Post Image" class="img-fluid">
-          <h2 class="post-title">Blog Post Title 2</h2>
-          <p class="post-meta">Posted on February 1, 2024 by Admin</p>
-          <p class="post-content">Suspendisse malesuada libero in libero fringilla, ut ultrices justo tincidunt. Proin non nisl eget enim dapibus consectetur. Integer vestibulum sollicitudin ipsum, ac vestibulum justo efficitur vel.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <!-- Add more blog posts as needed -->
+      {% endfor %}
     </div>
   </div>
+{% endif %}
+
 {% endblock content %}
