@@ -3,7 +3,7 @@ from django.views import View
 from assets.models import Property
 from home.forms import ContactUSForm
 from django.http import JsonResponse
-from .models import ContactUS,Blog,HomeGallery
+from .models import ContactUS,Blog,HomeGallery,Carousel
 from django.shortcuts import get_object_or_404
 # Create your views here.
 
@@ -11,9 +11,11 @@ def homeView(request):
     if request.method == "GET":
         property_data=Property.objects.all()[:4]
         gallery_data=HomeGallery.objects.all().order_by("-id")
+        carousels=Carousel.objects.all().order_by("-id")[:3]
         context={
             "properties":property_data,
-            "galleries":gallery_data
+            "galleries":gallery_data,
+            "carousels":carousels
         }
         return render(request,"home/home.html",context)
 

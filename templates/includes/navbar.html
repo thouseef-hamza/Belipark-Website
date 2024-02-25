@@ -1,5 +1,15 @@
 <!-- Nav Starts -->
 {% load static %}
+<style>
+  @media screen and (min-width: 768px) {
+  .navbar-nav{
+    margin-left: 50px;
+  }
+  .collapse .navbar-collapse{
+    margin-left: 170px;
+  }
+}
+</style>
 <nav
   class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake"
   id="ftco-navbar"
@@ -20,8 +30,8 @@
       <span class="oi oi-menu"></span> Menu
     </button>
 
-    <div class="collapse navbar-collapse ml-5" id="ftco-nav">
-      <ul class="navbar-nav ml-5">
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav">
         <li class="nav-item active"><a href="{% url 'home:home_view' %}" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="{% url 'home:about_view' %}" class="nav-link">About US</a></li>
         <li class="nav-item"><a href="{% url 'assets:property_list' %}" class="nav-link">Properties</a></li>
