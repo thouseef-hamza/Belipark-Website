@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from assets.models import Property,Project
+from assets.models import Property,Project,ImageGallery
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 # Create your views here.
@@ -33,13 +33,13 @@ def getDetailProperty(request,id):
         return redirect("home:home_view")
 
 def getPropertyImage(request,id):
-    image=get_object_or_404(Gallery,id=id)
+    image=get_object_or_404(ImageGallery,id=id)
     serialized_data={
         "id":image.id,
         "image":image.image.url
     }
     return JsonResponse({
-        "data":serialized_data,
+        "data":serialized_data, 
         "status":200,
     })
 

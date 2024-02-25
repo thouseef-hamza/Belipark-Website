@@ -3,7 +3,7 @@ from django.views import View
 from assets.models import Property
 from home.forms import ContactUSForm
 from django.http import JsonResponse
-from .models import ContactUS,Blog,HomeGallery,Carousel
+from .models import ContactUS,Blog,HomeGallery,Carousel,AboutUS
 from django.shortcuts import get_object_or_404
 # Create your views here.
 
@@ -22,7 +22,8 @@ def homeView(request):
 
 def aboutView(request):
     if request.method == "GET":
-        return render(request,"home/about_us.html")
+        about_details = AboutUS.objects.prefetch_related("directors").last()
+        return render(request,"home/about_us.html",context={"about_details":about_details})
 
 def createContact(request):
     if request.method=="POST":

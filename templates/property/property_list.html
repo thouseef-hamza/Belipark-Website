@@ -4,6 +4,7 @@
 {% block content %}
 <!-- Nav Starts -->
 {% include "includes/navbar.html" %}
+{% if properties %}
 {% comment %} <section class="ftco-section ftco-intro" style="background-color: #d2b570;margin-top:7%">
 	<div class="container">
   <div class="row">
@@ -93,4 +94,11 @@
 </div>
     </div>
 </section>
+{% else %}
+<div class="container text-center my-5">
+    <h1>No Data Available</h1>
+    <p class="lead">Sorry, there is no data to display.</p>
+    <a href="{% url 'home:home_view' %}" class="btn btn-primary">Go Back</a>
+  </div>
+{% endif %}
 {% endblock content %}

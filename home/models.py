@@ -30,20 +30,22 @@ class HomeGallery(models.Model):
     
 class AboutUS(models.Model):
     content=models.TextField()
+    image=models.ImageField(upload_to="about/")
     
     def __str__(self):
         return self.content
     
 
 class Director(models.Model):
-    aboutus=models.ForeignKey(AboutUS,related_name="directors_images",on_delete=models.CASCADE)
+    aboutus=models.ForeignKey(AboutUS,related_name="directors",on_delete=models.CASCADE)
     full_name=models.CharField(max_length=155)
     image=models.ImageField(upload_to="directors")
-    position=models.CharField(max_length=100,null=True)
+    position=models.CharField(max_length=100,null=True,blank=True)
     
     def __str__(self) -> str:
         return self.full_name
     
 class Carousel(models.Model):
     image=models.ImageField(upload_to="carousel/")
+    
     

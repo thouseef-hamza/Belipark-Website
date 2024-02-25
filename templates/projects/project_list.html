@@ -2,8 +2,7 @@
 {% block content %}
 {% include "includes/navbar.html" %}
 {% load static %}
-<!-- Nav Starts -->
-
+{% if projects %}
 <section class="ftco-section ftco-no-pt bg-white" style="margin-top:2%">
 	<div class="container">
 		<div class="row">
@@ -29,4 +28,13 @@
         </div>
     </div>
 </section>
+{% else %}
+<div class="container text-center my-5">
+    <h1>No Data Available</h1>
+    <p class="lead">Sorry, there is no data to display.</p>
+    <a href="{% url 'home:home_view' %}" class="btn btn-primary">Go Back</a>
+  </div>
+{% endif %}
+
+
 {% endblock content %}
