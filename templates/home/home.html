@@ -2,75 +2,31 @@
 {% load static %}
 {% block content %}
 {% include "includes/navbar.html" %}
-{% comment %} <nav
-  class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-  id="ftco-navbar"
-  style="position: absolute;"
->
-  <div class="container">
-    <img src="{% static 'images/logo.png' %}" alt=""  width="80px"/>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#ftco-nav"
-      aria-controls="ftco-nav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="oi oi-menu"></span> Menu
-    </button>
-
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="{% url 'home:home_view' %}" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="{% url 'home:about_view' %}" class="nav-link">About US</a></li>
-        <li class="nav-item"><a href="{% url 'assets:property_list' %}" class="nav-link">Properties</a></li>
-        <li class="nav-item"><a href="{% url 'assets:project_list' %}" class="nav-link">Our Projects</a></li>
-        <li class="nav-item"><a href="{% url 'home:home_view' %}" class="nav-link">Blog</a></li>
-        <li class="nav-item"><a href="#contact-us" class="nav-link">Contact US</a></li>
-      </ul>
+<div id="carouselBasicExample" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+	{% for carousel in carousels %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{{carousel.image.url}}" class="d-block w-100" alt="Sunset Over the City"/>
     </div>
+	{% endfor %}
   </div>
-</nav> {% endcomment %}
-<!-- Nav Ends -->
-{% comment %} <style>
-	#carouselExampleControls {
-		max-height: 100vh;
-	}
+  <a class="carousel-control-prev" href="#carouselBasicExample" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselBasicExample" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-	.carousel-inner .carousel-active img {
-		width: 120%%;
-		height: 100vh; /* Ensures the height adjusts proportionally to the width */
-    	object-fit: cover;
-	}
-</style> {% endcomment %}
-<style>
-    .carousel-item {
-      height: 86.5vh; 
-    }
-    .carousel-item img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-	@media (max-width: 767px) {
-    .carousel-item img.carousel-image-home {
-        height: 60vh; /* Adjust the height as needed */
-        width: auto;
-    }
-	#carouselExampleControls{
-		height: 60vh; /* Adjust the height as needed */
-        width: auto;
-	}
-}
-  </style>
-  {% if carousels %}
+<!-- Carousel wrapper -->
+  {% comment %} {% if carousels %}
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner">
 	{% for carousel in carousels %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img class="d-block w-100 carousel-image-home" src="{{carousel.image.url}}" alt="">
+        <img class="d-block carousel-image-home" style="object-fit:contain" width="100vw" src="{{carousel.image.url}}" alt="">
       </div>
     {% endfor %}
 	</div>
@@ -84,6 +40,33 @@
 	</a>
   </div>
   {% endif %}
+  {% if carousels %}
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+	  {% for carousel in carousels %}
+	  <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %}"></li>
+	  {% endfor %}
+	</ol>
+	<div class="carousel-inner">
+	  {% for carousel in carousels %}
+	  <div class="carousel-item {% if loop.first %}active{% endif %}">
+		<img src="{{ carousel.image.url }}" class="d-block w-100" alt="">
+	  </div>
+	  {% endfor %}
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+  </div>
+  {% endif %} {% endcomment %}
+
+
+
 
 {% comment %} <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner overflow-hidden">
