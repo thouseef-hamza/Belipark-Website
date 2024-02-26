@@ -6,12 +6,12 @@ from django.db import models
 class ContactUS(models.Model):
     full_name = models.CharField(max_length=125)
     email = models.EmailField()
-    subject = models.CharField(max_length=255, null=True, blank=True)
+    phone_number = models.CharField(max_length=15)
     message = models.TextField()
 
     def __str__(self) -> str:
         return self.full_name
-    
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -27,14 +27,14 @@ class HomeGallery(models.Model):
     
     def __str__(self) -> str:
         return self.title
-    
+
 class AboutUS(models.Model):
     content=models.TextField()
     image=models.ImageField(upload_to="about/")
     
     def __str__(self):
         return self.content
-    
+
 
 class Director(models.Model):
     aboutus=models.ForeignKey(AboutUS,related_name="directors",on_delete=models.CASCADE)
@@ -44,8 +44,6 @@ class Director(models.Model):
     
     def __str__(self) -> str:
         return self.full_name
-    
+
 class Carousel(models.Model):
     image=models.ImageField(upload_to="carousel/")
-    
-    

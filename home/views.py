@@ -37,7 +37,7 @@ def createContact(request):
         ContactUS.objects.create(
             full_name=forms.cleaned_data["full_name"],
             email=forms.cleaned_data["email"],
-            subject=forms.cleaned_data.get("subject",""),
+            phone_number=forms.cleaned_data.get("phone_number",""),
             message=forms.cleaned_data["message"]   
         )
         return JsonResponse(
