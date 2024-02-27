@@ -50,7 +50,6 @@ class Project(models.Model):
     description=models.TextField()
     amenity=models.ManyToManyField(Amenity)
     service = models.ManyToManyField(Service)
-    plot_layout=models.ImageField(upload_to="project_plot/",null=True,blank=True)
     location=models.URLField(max_length=500,null=True,blank=True)
     main_photo = models.ImageField(upload_to="project_photos/")
 
@@ -62,3 +61,13 @@ class ImageGallery(models.Model):
     property_id=models.ForeignKey(Property,on_delete=models.CASCADE,related_name="property_images",null=True,blank=True)
     project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_images",null=True,blank=True)
     image = models.ImageField(upload_to="assets/images/")
+    
+    def __str__(self) -> str:
+        return self.property_id.property_name or self.project.project_name
+    
+class ProjectPlotLayout(models.Model):
+    project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_plotlayout")
+    image=models.ImageField(upload_to="plot/")
+    
+    def __str__(self) -> str:
+        return self.project.project_name

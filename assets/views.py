@@ -42,7 +42,7 @@ def getPropertyImage(request,id):
         "data":serialized_data, 
         "status":200,
     })
-    
+
 def getProjectImage(request,id):
     image=get_object_or_404(ImageGallery,id=id)
     serialized_data={
@@ -62,7 +62,11 @@ class ProjectListView(View):
 class ProjectRetriveView(View):
     def get(self, request, id, *args, **kwargs):
         try:
-            project = Project.objects.prefetch_related("project_images").filter(id=id).first()
+            project = (
+                Project.objects.prefetch_related("project_images", "project_plotlayout")
+                .filter(id=id)
+                .first()
+            )
         except Project.DoesNotExist:
             pass
         context = {
@@ -72,8 +76,8 @@ class ProjectRetriveView(View):
             "services": project.service.all(),
             "image": project.main_photo,
             "images": project.project_images.all(),
-            "plot_layout":project.plot_layout,
-            "location":project.location
+            "location":project.location,
+            "plot_layouts":project.project_plotlayout.all()
         }
         return render(
             request, "projects/project_detail.html", context=context
