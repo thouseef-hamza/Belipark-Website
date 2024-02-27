@@ -42,8 +42,8 @@
 <section class="ftco-section ftco-no-pt bg-white" style="margin-top:2%">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 heading-section text-start ftco-animate">
-				<h2 class="mb-2" style="font-family: 'Nunito', sans-serif;font-weight: 900;">{{project_name}}</h2>
+			<div class="col-12 heading-section text-center ftco-animate">
+				<h2 class="mb-2 text-center" style="font-family: 'Nunito', sans-serif;font-weight: 900;">{{project_name}}</h2>
 			</div>
 		</div>
         <div class="row">
@@ -65,7 +65,9 @@
             >
         {% if services %}
         <div class="row">
-            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-left:1rem;" >Services</h1>
+            <div class="col-sm-12">
+                <h2 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-left:1rem;" class="text text-center" >Services</h2>
+            </div>
         </div>
         <div class="row">
             {% for service in services %}
@@ -80,8 +82,10 @@
         </div>
         {% endif %}
         {% if amenity %}
-        <div class="row">
-            <h1 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-top:1rem;margin-left:1rem;" style="ml-3" >Amenities</h1>
+        <div class="row text-center">
+            <div class="col-12">
+                <h2 style="font-family: 'Nunito', sans-serif;font-weight: 900;margin-top:1rem;margin-left:1rem;" class="text text-center" style="ml-3" >Amenities</h2>
+            </div>
         </div>
         <div class="row">
 			<div class="col-md-12">
