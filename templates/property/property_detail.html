@@ -85,9 +85,9 @@
 {% endif %}
 </section>
 <script>
-    function openEnrollModal() {
-            var EnrollModal = new bootstrap.Modal(document.getElementById('modal-dialog'));
-            EnrollModal.show();
+    function openPropertyImageModal() {
+            var imageModal = new bootstrap.Modal(document.getElementById('modal-dialog'));
+            imageModal.show();
     }
     function showImage(id){
         $.ajax({
@@ -102,13 +102,13 @@
                 document.getElementById('image-show').innerHTML += `
                 <img src="${msg.data.image}" width="100%" heigth="auto" class="rounded"/>
                 `
-                openEnrollModal()
+                openPropertyImageModal()
             }
         }
     }
     function closeModal() {
-        var EnrollModal = new bootstrap.Modal(document.getElementById('modal-dialog'));
-        EnrollModal.hide();
+        var imageModal = new bootstrap.Modal(document.getElementById('modal-dialog'));
+        imageModal.hide();
     }
 </script>
 

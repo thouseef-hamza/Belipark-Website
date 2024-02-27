@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row justify-content-around">
                 {% for director in about_details.directors.all %}
-                <div class="{% if director.count >= 4 %}col-6 col-md-4 {% else %} col-6 col-md-4 {% endif %}">
+                <div class="{% if director.count >= 4 %}col-10 col-md-4 {% else %} col-10 col-md-4 {% endif %}">
                     <div class="card mb-5" >
                         <img src="{{director.image.url}}" class="card-img-top" alt="{{director.full_name}} image">
                         <div class="card-body">

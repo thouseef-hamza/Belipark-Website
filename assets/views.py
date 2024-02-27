@@ -42,6 +42,17 @@ def getPropertyImage(request,id):
         "data":serialized_data, 
         "status":200,
     })
+    
+def getProjectImage(request,id):
+    image=get_object_or_404(ImageGallery,id=id)
+    serialized_data={
+        "id":image.id,
+        "image":image.image.url
+    }
+    return JsonResponse({
+        "data":serialized_data, 
+        "status":200,
+    })
 
 class ProjectListView(View):
     def get(self,request,*args, **kwargs):
