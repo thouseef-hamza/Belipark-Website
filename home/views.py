@@ -57,3 +57,21 @@ def blogDetail(request,id):
     blog=get_object_or_404(Blog,id=id) 
     blogs=Blog.objects.all().order_by("-created_at")
     return render(request,"blogs/blog_detail.html",context={"blog":blog,"blogs":blogs})
+
+from assets.models import Infratech,InfraTechImages
+
+def infratechPage(request):
+    description=Infratech.objects.last()
+    images=InfraTechImages.objects.all()
+    return render(request, "home/infratech.html",context={"description":description.content,"images":images,"image_count":range(images.count())})
+
+def infratechImage(request,id):
+    image=get_object_or_404(InfraTechImages,id=id)
+    
+    return JsonResponse(
+        {
+            "message": "Image Fetched Successfully",
+            "success": True,
+            "status": 200,
+        }
+    )

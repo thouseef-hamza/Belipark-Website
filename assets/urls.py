@@ -10,4 +10,5 @@ urlpatterns = [
     path("projects/",views.ProjectListView.as_view(),name="project_list"),
     path("projects/detail/<int:id>/",views.ProjectRetriveView.as_view(),name="project_detail"),
     path("project/image/<int:id>/", views.getPropertyImage, name="property_image"),
+ 
 ]

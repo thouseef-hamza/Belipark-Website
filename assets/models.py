@@ -1,7 +1,4 @@
 from django.db import models
-import os
-# Create your models here.
-
 
 class Amenity(models.Model):
     name = models.CharField(max_length=100)
@@ -23,6 +20,7 @@ class Property(models.Model):
         FOR_RENT="for_rent","For Rent"
         FOR_SALE="for_sale","For Sale"
         AVAILABLE="available","Available"
+        
     property_name = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -50,7 +48,6 @@ class Project(models.Model):
     description=models.TextField()
     amenity=models.ManyToManyField(Amenity)
     service = models.ManyToManyField(Service)
-    location=models.URLField(max_length=500,null=True,blank=True)
     main_photo = models.ImageField(upload_to="project_photos/")
 
     def __str__(self) -> str:
@@ -63,11 +60,24 @@ class ImageGallery(models.Model):
     image = models.ImageField(upload_to="assets/images/")
     
     def __str__(self) -> str:
-        return self.property_id.property_name or self.project.project_name
-    
+        return self.property_id.property_name if self.property_id.property_name else self.project if self.project.project_name else "None"
+
 class ProjectPlotLayout(models.Model):
     project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_plotlayout")
     image=models.ImageField(upload_to="plot/")
     
     def __str__(self) -> str:
         return self.project.project_name
+
+class Infratech(models.Model):
+    content=models.TextField()
+    
+    def __str__(self) -> str:
+        return "Infratech Description"
+    
+class InfraTechImages(models.Model):
+    image=models.ImageField(upload_to="infratech/",null=True,blank=True)
+    
+    def __str__(self) -> str:
+        return "Infratech Images"
+    

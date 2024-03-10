@@ -82,3 +82,4 @@ class ProjectRetriveView(View):
         return render(
             request, "projects/project_detail.html", context=context
         )
+
