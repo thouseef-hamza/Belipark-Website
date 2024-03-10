@@ -12,10 +12,12 @@ def homeView(request):
         property_data=Property.objects.all()[:4]
         gallery_data=HomeGallery.objects.all().order_by("-id")
         carousels=Carousel.objects.all().order_by("-id")[:3]
+        about_us=AboutUS.objects.last()
         context={
             "properties":property_data,
             "galleries":gallery_data,
-            "carousels":carousels
+            "carousels":carousels,
+            "about_us":about_us
         }
         return render(request,"home/home.html",context)
 
@@ -63,7 +65,7 @@ from assets.models import Infratech,InfraTechImages
 def infratechPage(request):
     description=Infratech.objects.last()
     images=InfraTechImages.objects.all()
-    return render(request, "home/infratech.html",context={"description":description.content,"images":images,"image_count":range(images.count())})
+    return render(request, "home/infratech.html",context={"description":description.content if description else None,"images":images,"image_count":range(images.count())})
 
 def infratechImage(request,id):
     image=get_object_or_404(InfraTechImages,id=id)

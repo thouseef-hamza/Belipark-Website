@@ -19,6 +19,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+{% if about_us %}
 <!-- About Start -->
 <div class="container-fluid about">
 	<div class="container py-5">
@@ -26,32 +27,15 @@
 			<div class="col-sm-12"
 				style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8));">
 				<h1 class="section-about-title pe-3 text-center" style="font-family: 'Nunito', sans-serif;font-weight: 900;">About <span style="color:#dc1666;font-family: 'Nunito', sans-serif;font-weight: 900;">Us</span></h1>
-				<p class="mb-4">Alaska group is leading a team of the brightest minds in architecture,
-					G R O U P engineering and designing to develop the idea of township in a reality.</p>
-				<p class="mb-4">Revered as one of the most reliable real estate
-					developers in Madhya Pradesh, Alaska Group
-					was incepted in 2006 with the intention of
-					dramatically transforming the real estate
-					landscape of Indore and nearby areas by
-					introducing world-class residential and
-					commercial spaces. Alaska Group in the past 16
-					years has completed it’s growth in premium
-					properties across the length and breadth of the
-					city.</p>
-				<p class="mb-4">Trusted by generations of property owners,
-					Alaska Group have over the years created their
-					own niche and have become a formidable force
-					in the growing real estate market. Known for
-					our timely deliveries, customer relations and
-					infallible infrastructure, we pride ourselves in
-					understanding the needs of the market and
-					catering to it exclusively in our own trademark
-					style!</p>
+				<p class="mb-4">{{about_us|linebreaks}}</p>
 				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" href="{% url 'home:about_view' %}">Read More</a>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+{% endif %}
 <section class="ftco-section">
 	<div class="container">
 		<div class="row mb-5">
@@ -139,7 +123,7 @@
 		</div>
 	</div>
 </section>
-
+{% if properties %}
 <div class="container-fluid about">
 	<div class="container py-5">
 					<div class="row">
@@ -178,8 +162,9 @@
 			</div>
 	</div>
 </div>
+{% endif %}
 
-
+{% if galleries %}
 <section class="ftco-section ftco-no-pt bg-light">
 	<div class="container ">
 		<div class="row justify-content-center">
@@ -207,6 +192,7 @@
 		</div>
 	</div>
 </section>
+{% endif %}
 
 <section class="ftco-section ftco-no-pt bg-light" id="contact-us">
 	<div class="container">
