@@ -57,7 +57,7 @@ def blogList(request):
 
 def blogDetail(request,id):
     blog=get_object_or_404(Blog,id=id) 
-    blogs=Blog.objects.all().order_by("-created_at")
+    blogs=Blog.objects.exclude(id=id).order_by("-created_at")
     return render(request,"blogs/blog_detail.html",context={"blog":blog,"blogs":blogs})
 
 from assets.models import Infratech,InfraTechImages
