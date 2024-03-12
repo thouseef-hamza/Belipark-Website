@@ -1,2 +1,6 @@
 .vscode
 __pycache__
+.env
+https:
+https:/bhumirealty.s3.amazonaws.com/static/admin/css/autocomplete.css
+

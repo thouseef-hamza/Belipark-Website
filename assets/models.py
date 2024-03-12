@@ -60,7 +60,12 @@ class ImageGallery(models.Model):
     image = models.ImageField(upload_to="assets/images/")
     
     def __str__(self) -> str:
-        return self.property_id.property_name if self.property_id.property_name else self.project if self.project.project_name else "None"
+       if self.property_id:
+          return f"Image for property: {self.property_id.property_name}"
+       elif self.project:
+          return f"Image for project: {self.project.project_name}"
+       else:
+          return "Unassigned Image"
 
 class ProjectPlotLayout(models.Model):
     project=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_plotlayout")
@@ -80,4 +85,4 @@ class InfraTechImages(models.Model):
     
     def __str__(self) -> str:
         return "Infratech Images"
-    
+   
