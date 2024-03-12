@@ -6,7 +6,7 @@
   <div class="carousel-inner">
 	{% for carousel in carousels %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
-      <img src="{{carousel.image.url}}" class="d-block w-100 h-90" alt="Sunset Over the City"/>
+      <img src="{{carousel.image.url}}" class="d-block w-100" alt="Sunset Over the City"/>
     </div>
 	{% endfor %}
   </div>
