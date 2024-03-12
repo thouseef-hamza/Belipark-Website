@@ -68,7 +68,7 @@ class ProjectRetriveView(View):
                 .first()
             )
         except Project.DoesNotExist:
-            pass
+            return redirect("home:home_view")
         context = {
             "project_name": project.project_name,
             "description": project.description,
@@ -76,7 +76,6 @@ class ProjectRetriveView(View):
             "services": project.service.all(),
             "image": project.main_photo,
             "images": project.project_images.all(),
-            "location":project.location,
             "plot_layouts":project.project_plotlayout.all()
         }
         return render(

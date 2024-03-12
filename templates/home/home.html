@@ -27,7 +27,7 @@
 			<div class="col-sm-12"
 				style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8));">
 				<h1 class="section-about-title pe-3 text-center" style="font-family: 'Nunito', sans-serif;font-weight: 900;">About <span style="color:#dc1666;font-family: 'Nunito', sans-serif;font-weight: 900;">Us</span></h1>
-				<p class="mb-4">{{about_us|linebreaks}}</p>
+				<p class="mb-4">{{about_us|linebreaks|truncatechars:1000}}</p>
 				<a class="btn btn-primary rounded-pill py-3 px-5 mt-2 read-btn" href="{% url 'home:about_view' %}">Read More</a>
 			</div>
 		</div>
