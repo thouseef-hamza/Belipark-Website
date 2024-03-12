@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 
@@ -47,3 +47,14 @@ class Director(models.Model):
 
 class Carousel(models.Model):
     image=models.ImageField(upload_to="carousel/")
+    created_at=models.DateTimeField(default=timezone.now)
+    
+    def __str__(self) -> str:
+        return "Carousel Image %s" % self.id
+
+class Faculty(models.Model):
+    image=models.ImageField(upload_to="faculty/")
+    title_name=models.TextField(max_length=250)
+
+    def __str__(self) -> str:
+        return "Faculty Image of %s" % self.title_name

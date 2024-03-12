@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% include "includes/navbar.html" %}
+{% if carousels %}
 <div id="carouselBasicExample" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
 	{% for carousel in carousels %}
@@ -19,6 +20,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+{% endif %}
+
 {% if about_us %}
 <!-- About Start -->
 <div class="container-fluid about">
@@ -33,9 +36,8 @@
 		</div>
 	</div>
 </div>
-
-
 {% endif %}
+{% if faculties %}
 <section class="ftco-section">
 	<div class="container">
 		<div class="row mb-5">
@@ -44,85 +46,22 @@
 			</div>
 		</div>
 		<div class="row h-100">
+			{% for faculty in faculties %}
 			<div class="col-md-3 col-sm-6 mb-5">
 				<div class="services services-2 w-100 h-100 text-center" style="height:110%">
-					<div class="icon d-flex align-items-center justify-content-center  services-shadow-hover"><span
-							class="flaticon-wedding-car"></span></div>
-					<div class="text w-100 ">
-						<h3 class="heading mb-2">360&#176 Security Camera</h3>
+					<div class="icon d-flex align-items-center justify-content-center  services-shadow-hover">
+						<img src="{{faculty.image.url}}" class="white-icon" width="50px" height="50px"  />
 					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-transportation"></span></div>
 					<div class="text w-100">
-						<h3 class="heading mb-2">Solar System for Street Lights</h3>
+						<h3 class="heading mb-2">{{faculty.title_name}}</h3>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-car"></span></div>
-					<div class="text w-100">
-						<h3 class="heading mb-2">Drip Irrigation System</h3>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-transportation"></span></div>
-					<div class="text w-100">
-						<h3 class="heading mb-2">Wide RCC Roads</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-wedding-car"></span></div>
-					<div class="text w-100">
-						<h3 class="heading mb-2">Road Side Pover Block</h3>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-transportation"></span></div>
-					<div class="text w-100">
-						<h3 class="heading mb-2">Water Tank with underground Supply Line</h3>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-car"></span></div>
-					<div class="text w-100">
-						<h3 class="heading mb-2">Underground Drainage Line with
-							Severage treatment plant</h3>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 mb-5">
-				<div class="services services-2 w-100 text-center">
-					<div class="icon d-flex align-items-center justify-content-center services-shadow-hover"><span
-							class="flaticon-transportation"></span></div>
-					<div class="text w-100">
-						<h3 class="heading mb-2">Underground Storm Water line
-							with Water recharging pit</h3>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
+{% endif %} 
 {% if properties %}
 <div class="container-fluid about">
 	<div class="container py-5">

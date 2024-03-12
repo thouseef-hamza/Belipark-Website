@@ -49,6 +49,7 @@ class Project(models.Model):
     amenity=models.ManyToManyField(Amenity)
     service = models.ManyToManyField(Service)
     main_photo = models.ImageField(upload_to="project_photos/")
+    location=models.ImageField(upload_to="project/location/",null=True,blank=True)
 
     def __str__(self) -> str:
         return self.project_name
